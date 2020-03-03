@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 class Home extends React.Component {
   constructor(props) {
@@ -8,13 +9,15 @@ class Home extends React.Component {
       text: 'Hello Class',
       editable: true,
     };
-    console.warn('Hello I am Constructor');
+    // console.warn('Hello I am Constructor');
   }
   onChangeText(text) {
     console.warn(text);
   }
   render() {
     const {text, editable} = this.state;
+    const {navigation} = this.props;
+    console.log(navigation);
     return (
       <View style={styles.container}>
         <Text>{text}</Text>
@@ -28,11 +31,17 @@ class Home extends React.Component {
           }}
           onChangeText={text => this.onChangeText(text)}
         />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Second');
+          }}>
+          <Text>Move to Next</Text>
+        </TouchableOpacity>
       </View>
     );
   }
   componentDidMount() {
-    console.warn('Hello I am ComponentDidMount');
+    // console.warn('Hello I am ComponentDidMount');
     setTimeout(() => {
       this.setState({
         editable: false,
