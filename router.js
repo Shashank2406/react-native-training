@@ -5,19 +5,21 @@ import Second from './src/Components/Second';
 import * as React from 'react';
 const Stack = createStackNavigator();
 
-function MyStack() {
+const MyStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Second" component={Second} />
     </Stack.Navigator>
   );
-}
+};
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <MyStack />
     </NavigationContainer>
   );
-}
+};
+
+export default App;
