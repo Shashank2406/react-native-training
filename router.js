@@ -9,7 +9,13 @@ const MyStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Second" component={Second} />
+      <Stack.Screen
+        options={({route}) => ({
+          title: (route.params && route.params.title) || '',
+        })}
+        name="Second"
+        component={Second}
+      />
     </Stack.Navigator>
   );
 };

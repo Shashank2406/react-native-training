@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Platform} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 class Home extends React.Component {
@@ -13,6 +13,7 @@ class Home extends React.Component {
   }
   onChangeText(text) {
     console.warn(text);
+    this.setState({text});
   }
   render() {
     const {text, editable} = this.state;
@@ -22,7 +23,7 @@ class Home extends React.Component {
       <View style={styles.container}>
         <Text>{text}</Text>
         <TextInput
-          editable={editable}
+          // editable={editable}
           style={{
             height: 50,
             width: '90%',
